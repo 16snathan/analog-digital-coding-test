@@ -116,9 +116,10 @@ class Monitor():
         self.fail_count += n
         
     def updateMonitorAvgWait(self,n):
-        cumulative_wait = (self.average_wait * self.sender_count)
+        totalMessagesSent = (self.success_count + self.fail_count)
+        cumulative_wait = (self.average_wait * totalMessagesSent)
         cumulative_wait += n
-        self.average_wait += cumulative_wait / self.sender_count
+        self.average_wait += (cumulative_wait / totalMessagesSent)
     
     def getUpdatePeriod(self):
         return self.update_period
@@ -178,7 +179,7 @@ class Sender:
         # simulate trying to send a message
         (number,msg) = self.msgTuple
         # print("trying to send message with {} chars to {}".format(len(msg),number))
-        return (random.random() < self.failure_rate)
+        return (random.random() >= self.failure_rate)
     
     def resetSenderMetrics(self):
         self.success_count = 0
