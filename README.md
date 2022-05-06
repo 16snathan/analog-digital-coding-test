@@ -1,3 +1,7 @@
+SHIVA NATHAN
+May 6, 2022
+
+
 # analog-digital-coding-test
 The objective is to simulate sending a large number of SMS alerts, like for an emergency alert service. The simulation consists of three parts:
 1. A producer that generates a configurable number of messages (default 1000) to random phone number. Each message contains up to 100 random characters.
@@ -19,3 +23,4 @@ Run analog-test-suite.py to automatically import analog-test-main.py and start a
 
 KNOWN FAULTS:
 The implementation of collecting average wait time is incorrect. The fault in the implementation is still unknown.
+The producer seems to generate a few extra messages(ie 1012 instead of 1000) but it is not clear if this is my fault or due to how the queue built-in class reports size.
