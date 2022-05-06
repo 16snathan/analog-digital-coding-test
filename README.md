@@ -22,5 +22,5 @@ TEST CASES:
 Run analog-test-suite.py to automatically import analog-test-main.py and start a producer, monitor, and three senders. 
 
 KNOWN FAULTS:
-The implementation of collecting average wait time is incorrect. The fault in the implementation is still unknown.
+The monitor does not correctly report average wait time. This is a bug in how my method compounds the average but I have not determined how to fix it.
 The producer seems to generate a few extra messages(ie 1012 instead of 1000) but it is not clear if this is my fault or due to how the queue built-in class reports size.
